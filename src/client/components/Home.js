@@ -4,6 +4,7 @@ import AppBar from "./AppBar";
 import Post from "./Post";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import SkeletonPost from "./SkeletonPost";
 
 function Home() {
 
@@ -11,8 +12,6 @@ function Home() {
   const [userDatas, setUserDatas] = useState(null);
   const [userMap, setUserMap] = useState(null);
   const [currentUser, setCurrentUser] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   const reqPosts = axios.get("https://jsonplaceholder.typicode.com/posts");
   const reqUsers = axios.get("https://jsonplaceholder.typicode.com/users");
@@ -25,12 +24,10 @@ function Home() {
           setPostDatas(res[0].data || []);
           setUserDatas(res[1].data || []);
           setUserMap(getUserMap(res[1].data));
-          setLoading(false);
         })
       )
       .catch(error => {
         console.error("Error fetching data: ", error);
-        setError(error);
       });
   }, []);
 
@@ -56,10 +53,12 @@ function Home() {
       <AppBar currentUser={currentUser} userDatas={userDatas} switchUserFunc={switchUser} />
       <Container maxWidth="md" sx={{ mt: "75px" }}>
         <Box>
-          {postDatas && postDatas.map(function (post) {
+          {postDatas ? (postDatas.map(function (post) {
             let author = getUserById(post.userId) || { name: "User", email: "" };
             return <Post key={post.id} post={post} author={author} />
-          })}
+          })) : (
+            <SkeletonPost />
+          )}
         </Box>
       </Container>
     </div>
