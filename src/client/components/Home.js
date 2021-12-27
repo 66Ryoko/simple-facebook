@@ -35,7 +35,7 @@ function Home() {
     let map = new Map();
     if (users && users.length > 0) {
       users.forEach(user => map.set(user.id, user));
-      setCurrentUser(users[0]);
+      switchUser(users[0]);
     }
     return map;
   }

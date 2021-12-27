@@ -1,6 +1,6 @@
 import * as React from "react";
 import CardHeader from "@mui/material/CardHeader";
-import Skeleton from '@mui/material/Skeleton';
+import Skeleton from "@mui/material/Skeleton";
 
 export default function SkeletonCardHeader() {
   return (

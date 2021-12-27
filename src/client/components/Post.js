@@ -11,11 +11,11 @@ import Collapse from "@mui/material/Collapse";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 
-import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
-import SendIcon from '@mui/icons-material/Send';
+import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
+import SendIcon from "@mui/icons-material/Send";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
